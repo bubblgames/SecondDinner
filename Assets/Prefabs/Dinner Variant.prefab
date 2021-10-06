@@ -71,5 +71,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dinner Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6564093998359887462, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
+      propertyPath: m_TagString
+      value: Dinner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}

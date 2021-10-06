@@ -12,4 +12,12 @@ public class FoodScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Update()
+    {
+        if (gameObject.transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

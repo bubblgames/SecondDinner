@@ -19,7 +19,7 @@ public class KitchenScript : MonoBehaviour
 
     public void StartServing()
     {
-        InvokeRepeating("ServeFood", 0.0f, 0.2f);
+        InvokeRepeating("ServeFood", 0f, 0.2f);
     }
 
     public void StopServing()

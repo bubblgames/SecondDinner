@@ -47,11 +47,11 @@ TagManager:
   - name: Background
     uniqueID: 2311356149
     locked: 0
-  - name: Ground
-    uniqueID: 3508289369
-    locked: 0
   - name: Food
     uniqueID: 4192685081
+    locked: 0
+  - name: Ground
+    uniqueID: 3508289369
     locked: 0
   - name: Player
     uniqueID: 4027465063
