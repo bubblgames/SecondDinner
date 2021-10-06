@@ -58,3 +58,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+.idea/.idea.SecondDinner/.idea/vcs.xml
+.idea/.idea.SecondDinner/.idea/indexLayout.xml
+.idea/.idea.SecondDinner/.idea/encodings.xml
+.idea/.idea.SecondDinner/.idea/aws.xml
+*.meta
+*.meta
