@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,5 +30,21 @@ public class FudController : MonoBehaviour
     void OnMove(InputValue value)
     {
         _moveInput = value.Get<Vector2>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Food")))
+        {
+            ConsumeFood(other);
+        }
+    }
+
+    private void ConsumeFood(Collider2D other)
+    {
+        Destroy(other.gameObject);
+        // determine food quality
+        // add score
+        // adjust speed
     }
 }
