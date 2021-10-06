@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class KitchenScript : MonoBehaviour
 {
-    [SerializeField] private GameObject breakfastFood;
-    [SerializeField] private GameObject lunchFood;
-    [SerializeField] private GameObject dinnerFood;
+    [SerializeField] private GameObject favoriteFood;
+    [SerializeField] private GameObject badFoodOne;
+    [SerializeField] private GameObject badFoodTwo;
+    [SerializeField] private float minXVelocity;
+    [SerializeField] private float maxXVelocity;
+    [SerializeField] private float minYVelocity;
+    [SerializeField] private float maxYVelocity;
     
     private int currentRound;
     void Start()
@@ -17,9 +21,9 @@ public class KitchenScript : MonoBehaviour
     {
     }
 
-    public void StartServing()
+    public void StartServing(float speed)
     {
-        InvokeRepeating("ServeFood", 0f, 0.2f);
+        InvokeRepeating("ServeFood", 0f, speed);
     }
 
     public void StopServing()
@@ -37,8 +41,8 @@ public class KitchenScript : MonoBehaviour
 
     private Vector2 GenerateInitialVelocity()
     {
-        var launchY = Random.Range(5f, 10f);
-        var launchX = Random.Range(-7f, -0.5f);
+        var launchY = Random.Range(minYVelocity, maxYVelocity);
+        var launchX = Random.Range(minXVelocity, maxXVelocity);
 
         return new Vector2
         {
@@ -55,13 +59,13 @@ public class KitchenScript : MonoBehaviour
             case 0:
             case 1:
             case 2:
-                return breakfastFood;
+                return favoriteFood;
             case 3:
-                return lunchFood;
+                return badFoodOne;
             case 4:
-                return dinnerFood;
+                return badFoodTwo;
             default:
-                return breakfastFood;
+                return favoriteFood;
 
         }
     }

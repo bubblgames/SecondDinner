@@ -18,6 +18,7 @@ public class GameSessionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI roundText;
     [SerializeField] private TextMeshProUGUI roundTimeRemainingText;
     [SerializeField] private List<TextMeshProUGUI> scoreTexts;
+    [SerializeField] private List<KitchenScript> kitchens;
     private List<RoundInfo> roundInfos = new List<RoundInfo>
     {
         new RoundInfo
@@ -79,10 +80,9 @@ public class GameSessionController : MonoBehaviour
     void StopServing()
     {
         roundTimeRemainingText.text = "ROUND OVER!";
-        var kitchens = FindObjectsOfType<KitchenScript>();
-        foreach (var kitchen in kitchens)
+        for (var i = 0; i <= currentRound; i++)
         {
-            kitchen.StopServing();
+            kitchens[i].StopServing();
         }
 
         servingIsOnGoing = false;
@@ -118,10 +118,9 @@ public class GameSessionController : MonoBehaviour
             roundText.text = roundInfos[currentRound].name;
             roundText.color = roundInfos[currentRound].color;
             _fudController.SetCurrentMeal(roundInfos[currentRound].name);
-            var kitchens = FindObjectsOfType<KitchenScript>();
-            foreach (var kitchen in kitchens)
+            for (var i = 0; i <= currentRound; i++)
             {
-                kitchen.StartServing();
+                kitchens[i].StartServing((currentRound - i + 1) * 0.2f);
             }
             servingIsOnGoing = true;
         }
