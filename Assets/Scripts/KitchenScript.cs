@@ -7,16 +7,24 @@ public class KitchenScript : MonoBehaviour
     [SerializeField] private GameObject breakfastFood;
     [SerializeField] private GameObject lunchFood;
     [SerializeField] private GameObject dinnerFood;
-    [SerializeField] private float launchXVelocity;
-    [SerializeField] private float launchYVelocity;
+    
+    private int currentRound;
     void Start()
     {
-        
     }
 
     void Update()
     {
-        ServeFood();
+    }
+
+    public void StartServing()
+    {
+        InvokeRepeating("ServeFood", 0.0f, 0.2f);
+    }
+
+    public void StopServing()
+    {
+        CancelInvoke("ServeFood");
     }
 
     void ServeFood()
