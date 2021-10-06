@@ -109,7 +109,7 @@ public class GameSessionController : MonoBehaviour
     {
         if (currentRound == roundInfos.Count)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
         else
         {

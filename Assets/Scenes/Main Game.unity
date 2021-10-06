@@ -1644,7 +1644,7 @@ MonoBehaviour:
   kitchens:
   - {fileID: 665328050}
   - {fileID: 902679971}
-  - {fileID: 0}
+  - {fileID: 750372402}
 --- !u!4 &1547257582
 Transform:
   m_ObjectHideFlags: 0

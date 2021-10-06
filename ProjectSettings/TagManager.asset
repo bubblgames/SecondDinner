@@ -17,7 +17,7 @@ TagManager:
   - Ground
   - Player
   - Food
-  - 
+  - Door
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4027465063
+    locked: 0
+  - name: Door
+    uniqueID: 4138221691
     locked: 0
   - name: Food
     uniqueID: 4192685081

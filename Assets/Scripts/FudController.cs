@@ -1,6 +1,8 @@
 using System;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class FudController : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class FudController : MonoBehaviour
     private GameSessionController _gameSessionController;
     private string currentMeal;
     private float _originalMoveSpeed;
+    public bool canMove = true;
 
     void Start()
     {
@@ -25,12 +28,15 @@ public class FudController : MonoBehaviour
 
     void Run()
     {
-        Vector2 playerVelocity = new Vector2
+        if (canMove)
         {
-            x = _moveInput.x * _moveSpeed,
-            y = _rigidbody2D.velocity.y
-        };
-        _rigidbody2D.velocity = playerVelocity;
+            Vector2 playerVelocity = new Vector2
+            {
+                x = _moveInput.x * _moveSpeed,
+                y = _rigidbody2D.velocity.y
+            };
+            _rigidbody2D.velocity = playerVelocity;
+        }
     }
 
     void OnMove(InputValue value)
@@ -38,11 +44,21 @@ public class FudController : MonoBehaviour
         _moveInput = value.Get<Vector2>();
     }
 
+    public void SetMoveable(bool movability)
+    {
+        canMove = movability;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Food")))
         {
             ConsumeFood(other);
+        }
+        
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Door")))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
