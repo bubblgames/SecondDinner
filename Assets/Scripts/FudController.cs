@@ -9,8 +9,7 @@ public class FudController : MonoBehaviour
     [SerializeField] private float _speedIncrement;
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody2D;
-    private GameSessionController _gameSessionController;
-    private string currentMeal;
+    private string currentMeal = "Any";
     private float _originalMoveSpeed;
     public bool canMove = true;
 
@@ -18,7 +17,6 @@ public class FudController : MonoBehaviour
     {
         _originalMoveSpeed = _moveSpeed;
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _gameSessionController = FindObjectOfType<GameSessionController>();
     }
     void Update()
     {
@@ -57,7 +55,19 @@ public class FudController : MonoBehaviour
         
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Door")))
         {
-            SceneManager.LoadScene(0);
+            FindObjectOfType<GameSessionController>().SaveTotalScore();
+            SceneManager.LoadScene(4);
+        }
+
+        if (other.tag.Equals("KitchenTrigger"))
+        {
+            var kitchens = FindObjectsOfType<KitchenScript>();
+            foreach (var kitchen in kitchens)
+            {
+                kitchen.StartServing(0.2f);
+            }
+
+            FindObjectOfType<StillHungryTextController>().StopBlink();
         }
     }
 
@@ -69,17 +79,26 @@ public class FudController : MonoBehaviour
 
     private void ConsumeFood(Collider2D other)
     {
+        // Main Game
         if (other.tag.Equals(currentMeal))
         {
             _moveSpeed += _speedIncrement;
-            _gameSessionController.IncreaseScore(1);
+            FindObjectOfType<GameSessionController>().AteFood();
         }
         else
         {
-            _moveSpeed -= _speedIncrement;
+            if (_moveSpeed > 3)
+            {
+                _moveSpeed -= _speedIncrement;
+            }
         }
-        Destroy(other.gameObject);
+
+        // Outro
+        if (currentMeal.Equals("Any"))
+        {
+            FindObjectOfType<GameSessionController>().AteFood();
+        }
         
-        // adjust speed
+        Destroy(other.gameObject);
     }
 }

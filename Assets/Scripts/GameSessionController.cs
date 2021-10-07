@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -12,6 +14,8 @@ public class GameSessionController : MonoBehaviour
     private bool mealIsOnGoing = false;
     private float mealTimeRemaining = 0;
     private bool servingIsOnGoing = false;
+    [SerializeField] private bool isPlayingMainGame;
+    private int totalScore = 0;
     
     private FudController _fudController;
     
@@ -41,7 +45,7 @@ public class GameSessionController : MonoBehaviour
         }
     };
     private int currentRound = 0;
-   
+
     void Start()
     {
         restTimeRemaining = restDuration;
@@ -50,13 +54,16 @@ public class GameSessionController : MonoBehaviour
 
     void Update()
     {
-        if (mealIsOnGoing)
+        if (isPlayingMainGame)
         {
-            WaitForMealToEnd();
-        }
-        else
-        {
-            WaitToStartMeal();
+            if (mealIsOnGoing)
+            {
+                WaitForMealToEnd();
+            }
+            else
+            {
+                WaitToStartMeal();
+            }
         }
     }
 
@@ -109,7 +116,11 @@ public class GameSessionController : MonoBehaviour
     {
         if (currentRound == roundInfos.Count)
         {
+            totalScore = roundInfos.Sum(roundInfo => roundInfo.score);
+            isPlayingMainGame = false;
+            SaveTotalScore();
             SceneManager.LoadScene(2);
+            _fudController.SetCurrentMeal("Any");
         }
         else
         {
@@ -133,9 +144,34 @@ public class GameSessionController : MonoBehaviour
         restTimeRemaining = restDuration;
     }
 
-    public void IncreaseScore(int scoreAmount)
+    public void AteFood()
     {
-        roundInfos[currentRound].score += scoreAmount;
-        scoreTexts[currentRound].text = roundInfos[currentRound].score.ToString();
+        if (isPlayingMainGame)
+        {
+            roundInfos[currentRound].score += 1;
+            scoreTexts[currentRound].text = roundInfos[currentRound].score.ToString();
+        }
+        else
+        {
+            if (totalScore > 1)
+            {
+                totalScore--;
+                FindObjectOfType<StillHungryTextController>().SetScoreTotal(totalScore);
+            }
+            else
+            {
+                SceneManager.LoadScene(3);
+            }
+        }
+    }
+
+    public void SetTotalScore(int score)
+    {
+        totalScore = score;
+    }
+
+    public void SaveTotalScore()
+    {
+        PlayerPrefs.SetInt("score", totalScore);
     }
 }

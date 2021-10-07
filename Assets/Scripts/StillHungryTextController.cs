@@ -6,7 +6,7 @@ using UnityEngine;
 public class StillHungryTextController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI banner;
-
+    [SerializeField] private TextMeshProUGUI scoreTotal;
     private List<string> words = new List<string>
     {
         "What's that?",
@@ -26,17 +26,13 @@ public class StillHungryTextController : MonoBehaviour
     {
         ShowWord();
         FindObjectOfType<FudController>().SetMoveable(false);
+        SetScoreTotal(PlayerPrefs.GetInt("score", 0));
+        FindObjectOfType<GameSessionController>().SetTotalScore(PlayerPrefs.GetInt("score", 0));
     }
 
     void ShowWord()
     {
         InvokeRepeating("ShowLetter", wordDuration, letterDuration);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void ShowLetter()
@@ -81,5 +77,16 @@ public class StillHungryTextController : MonoBehaviour
         {
             banner.gameObject.SetActive(true);
         }
+    }
+
+    public void StopBlink()
+    {
+        CancelInvoke("BlinkWord");
+        banner.gameObject.SetActive(false);
+    }
+
+    public void SetScoreTotal(int score)
+    {
+        scoreTotal.text = score.ToString();
     }
 }
