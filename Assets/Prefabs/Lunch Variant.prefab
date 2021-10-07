@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!60 &3902633040920568317
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523740036354967974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.2933333, y: 1.28}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.50555557, y: -0.35555556}
+      - {x: 0.53888893, y: -0.34444445}
+      - {x: 0.53888893, y: -0.06666667}
+      - {x: 0.4388889, y: 0.07777778}
+      - {x: 0.33888888, y: 0.24444444}
+      - {x: 0.27222222, y: 0.34444445}
+      - {x: 0.16111112, y: 0.46666667}
+      - {x: 0.094444446, y: 0.53333336}
+      - {x: -0.12777779, y: 0.53333336}
+      - {x: -0.15, y: 0.5222222}
+      - {x: -0.38333336, y: 0.3888889}
+      - {x: -0.48333335, y: 0.33333334}
+      - {x: -0.53888893, y: 0.26666668}
+      - {x: -0.53888893, y: 0.055555556}
+      - {x: -0.45000002, y: -0.022222223}
+      - {x: -0.38333336, y: -0.055555556}
+      - {x: -0.15, y: -0.15555556}
+      - {x: 0.072222225, y: -0.26666668}
+      - {x: 0.072222225, y: -0.51111114}
+      - {x: 0.094444446, y: -0.53333336}
+      - {x: 0.22777778, y: -0.53333336}
+      - {x: 0.2611111, y: -0.5}
+      - {x: 0.33888888, y: -0.32222223}
+      - {x: 0.35, y: -0.35555556}
 --- !u!1001 &7781813689505626048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,10 +59,10 @@ PrefabInstance:
     - target: {fileID: 1620502053618237999, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fd4498322d2954e6a8ab8d69ba988cb2, type: 3}
+      objectReference: {fileID: 21300000, guid: 82eebcd041830408ca35c765efeb2d58, type: 3}
     - target: {fileID: 1620502053618237999, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1620502053618237999, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
       propertyPath: m_Color.g
@@ -21,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1620502053618237999, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4292128870489459361, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
       propertyPath: m_RootOrder
@@ -75,5 +124,19 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Lunch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7969180141419469579, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.4409091
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969180141419469579, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.43636364
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7969180141419469579, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
+--- !u!1 &3523740036354967974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6564093998359887462, guid: 57d6dbe1eae89499ab94afe91b9e1cf4, type: 3}
+  m_PrefabInstance: {fileID: 7781813689505626048}
+  m_PrefabAsset: {fileID: 0}

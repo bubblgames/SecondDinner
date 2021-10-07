@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSessionController : MonoBehaviour
 {
@@ -23,24 +24,23 @@ public class GameSessionController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI roundTimeRemainingText;
     [SerializeField] private List<TextMeshProUGUI> scoreTexts;
     [SerializeField] private List<KitchenScript> kitchens;
+    [SerializeField] private List<Sprite> foodIndicators;
+    [SerializeField] private Image foodIndicator;
     private List<RoundInfo> roundInfos = new List<RoundInfo>
     {
         new RoundInfo
         {
             name = "Breakfast",
-            color = Color.blue,
             score = 0,
         },
         new RoundInfo
         {
             name = "Lunch",
-            color = Color.green,
             score = 0
         },
         new RoundInfo
         {
             name = "Dinner",
-            color = Color.red,
             score = 0
         }
     };
@@ -127,7 +127,8 @@ public class GameSessionController : MonoBehaviour
             mealIsOnGoing = true;
             mealTimeRemaining = mealDuration;
             roundText.text = roundInfos[currentRound].name;
-            roundText.color = roundInfos[currentRound].color;
+            foodIndicator.sprite = foodIndicators[currentRound];
+            foodIndicator.color = Color.white;
             _fudController.SetCurrentMeal(roundInfos[currentRound].name);
             for (var i = 0; i <= currentRound; i++)
             {

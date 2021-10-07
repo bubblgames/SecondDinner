@@ -49,6 +49,11 @@ public class StillHungryTextController : MonoBehaviour
             else
             {
                 FindObjectOfType<FudController>().SetMoveable(true);
+                var kitchens = FindObjectsOfType<KitchenScript>();
+                foreach (var kitchen in kitchens)
+                {
+                    kitchen.StartServing(0.2f);
+                }
                 InvokeRepeating("BlinkWord", 0, letterDuration*5);
             }
         }

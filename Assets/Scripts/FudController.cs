@@ -7,11 +7,15 @@ public class FudController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _speedIncrement;
+    [SerializeField] private AudioClip yumClip;
+    [SerializeField] private AudioClip yuckClip;
+    [SerializeField] private AudioSource effectsPlayer;
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody2D;
     private string currentMeal = "Any";
     private float _originalMoveSpeed;
     public bool canMove = true;
+    
 
     void Start()
     {
@@ -61,12 +65,6 @@ public class FudController : MonoBehaviour
 
         if (other.tag.Equals("KitchenTrigger"))
         {
-            var kitchens = FindObjectsOfType<KitchenScript>();
-            foreach (var kitchen in kitchens)
-            {
-                kitchen.StartServing(0.2f);
-            }
-
             FindObjectOfType<StillHungryTextController>().StopBlink();
         }
     }
@@ -82,14 +80,29 @@ public class FudController : MonoBehaviour
         // Main Game
         if (other.tag.Equals(currentMeal))
         {
+            AudioSource.PlayClipAtPoint(yumClip, gameObject.transform.position);
             _moveSpeed += _speedIncrement;
             FindObjectOfType<GameSessionController>().AteFood();
+            if (gameObject.transform.localScale.x > 1)
+            {
+                gameObject.transform.localScale -= new Vector3(0.1f, 0f, 0f);
+            }
         }
         else
         {
-            if (_moveSpeed > 3)
+            AudioSource.PlayClipAtPoint(yuckClip, gameObject.transform.position);
+            if (_moveSpeed > _originalMoveSpeed)
+            {
+                _moveSpeed = _originalMoveSpeed;
+            }
+            else if (_moveSpeed > 2)
             {
                 _moveSpeed -= _speedIncrement;
+            }
+
+            if (gameObject.transform.localScale.x < 2.5)
+            {
+                gameObject.transform.localScale += new Vector3(0.1f, 0f, 0f);
             }
         }
 

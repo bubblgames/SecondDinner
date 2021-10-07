@@ -166,3 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 17
+  _speedIncrement: 2
+  yumClip: {fileID: 8300000, guid: c8098197bb7954fff9f3b1c7845cfd7d, type: 3}
+  yuckClip: {fileID: 8300000, guid: 26dc82340c03c4d9193eda3cdc32d05d, type: 3}
+  canMove: 1

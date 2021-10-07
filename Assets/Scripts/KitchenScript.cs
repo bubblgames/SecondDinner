@@ -43,11 +43,10 @@ public class KitchenScript : MonoBehaviour
     {
         var launchY = Random.Range(minYVelocity, maxYVelocity);
         var launchX = Random.Range(minXVelocity, maxXVelocity);
-
         return new Vector2
         {
             x = launchX,
-            y = launchY
+            y = launchY,
         };
     }
 

@@ -46,7 +46,7 @@ MonoBehaviour:
   favoriteFood: {fileID: 3523740036354967974, guid: 6c1fda45e008243639e46bcc84fc9337, type: 3}
   badFoodOne: {fileID: 3560909415216753038, guid: 58aef63db25e945b4b22a00a986ad24d, type: 3}
   badFoodTwo: {fileID: 7131751689975481390, guid: 4db26bd09b84142e9b9d9628859c670f, type: 3}
-  minXVelocity: 0.5
-  maxXVelocity: 7
-  minYVelocity: 5
-  maxYVelocity: 10
+  minXVelocity: 1
+  maxXVelocity: 4.5
+  minYVelocity: 4
+  maxYVelocity: 7

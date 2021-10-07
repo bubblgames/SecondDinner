@@ -1015,10 +1015,10 @@ MonoBehaviour:
   favoriteFood: {fileID: 7131751689975481390, guid: 4db26bd09b84142e9b9d9628859c670f, type: 3}
   badFoodOne: {fileID: 3523740036354967974, guid: 6c1fda45e008243639e46bcc84fc9337, type: 3}
   badFoodTwo: {fileID: 3560909415216753038, guid: 58aef63db25e945b4b22a00a986ad24d, type: 3}
-  minXVelocity: -7
-  maxXVelocity: -0.5
-  minYVelocity: 5
-  maxYVelocity: 10
+  minXVelocity: -4.5
+  maxXVelocity: -1
+  minYVelocity: 4
+  maxYVelocity: 7
 --- !u!4 &665328051
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750372401
 GameObject:
@@ -1065,8 +1065,8 @@ MonoBehaviour:
   favoriteFood: {fileID: 3560909415216753038, guid: 58aef63db25e945b4b22a00a986ad24d, type: 3}
   badFoodOne: {fileID: 7131751689975481390, guid: 4db26bd09b84142e9b9d9628859c670f, type: 3}
   badFoodTwo: {fileID: 3523740036354967974, guid: 6c1fda45e008243639e46bcc84fc9337, type: 3}
-  minXVelocity: -3
-  maxXVelocity: 3
+  minXVelocity: -2
+  maxXVelocity: 2
   minYVelocity: 0
   maxYVelocity: 3
 --- !u!4 &750372403
@@ -1331,8 +1331,83 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1168926449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168926450}
+  - component: {fileID: 1168926452}
+  - component: {fileID: 1168926451}
+  m_Layer: 5
+  m_Name: FoodIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1168926450
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168926449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1335921407}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -720.3, y: 375.9}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1168926451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168926449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1168926452
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168926449}
+  m_CullTransparentMesh: 1
 --- !u!1 &1264511703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,8 +1549,9 @@ RectTransform:
   - {fileID: 1789151189}
   - {fileID: 2051939720}
   - {fileID: 929424676}
+  - {fileID: 1168926450}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1779,7 +1855,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ebca1ad6694104bb090e1f96cd7a257b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2128,8 +2204,12 @@ PrefabInstance:
       value: Fud
       objectReference: {fileID: 0}
     - target: {fileID: 2613953057476747236, guid: 9f4242a571ff147d086f29ed72261601, type: 3}
+      propertyPath: yumClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a3691809f54814f87b732bc2be77b01b, type: 3}
+    - target: {fileID: 2613953057476747236, guid: 9f4242a571ff147d086f29ed72261601, type: 3}
       propertyPath: _speedIncrement
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2613953057476747238, guid: 9f4242a571ff147d086f29ed72261601, type: 3}
       propertyPath: m_Size.x
@@ -2155,7 +2235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3061554211746430576, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3061554211746430576, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2210,6 +2290,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
+      propertyPath: foodIndicator
+      value: 
+      objectReference: {fileID: 1168926451}
+    - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
       propertyPath: isPlayingMainGame
       value: 1
       objectReference: {fileID: 0}
@@ -2241,6 +2325,22 @@ PrefabInstance:
       propertyPath: scoreTexts.Array.data[2]
       value: 
       objectReference: {fileID: 929424677}
+    - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
+      propertyPath: foodIndicators.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
+      propertyPath: foodIndicators.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7674365c60b254802b63eddd32e317af, type: 3}
+    - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
+      propertyPath: foodIndicators.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 82eebcd041830408ca35c765efeb2d58, type: 3}
+    - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
+      propertyPath: foodIndicators.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: dcf13806413154a3a89e45b6ae05a353, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
 --- !u!1001 &4863902342191305917
