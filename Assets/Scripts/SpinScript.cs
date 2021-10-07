@@ -7,6 +7,6 @@ public class SpinScript : MonoBehaviour
     void Update()
     {
         gameObject.transform.Rotate(0, 0, spinAmount);
-        spinAmount += 0.05f;
+        spinAmount += 0.15f;
     }
 }
