@@ -15,12 +15,13 @@ public class FudController : MonoBehaviour
     private string currentMeal = "Any";
     private float _originalMoveSpeed;
     public bool canMove = true;
-    
+    private Animator _animator;
 
     void Start()
     {
         _originalMoveSpeed = _moveSpeed;
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -73,10 +74,12 @@ public class FudController : MonoBehaviour
     {
         currentMeal = meal;
         _moveSpeed = _originalMoveSpeed;
+        _animator.SetBool("isEating", true);
     }
 
     private void ConsumeFood(Collider2D other)
     {
+        
         // Main Game
         if (other.tag.Equals(currentMeal))
         {
@@ -85,8 +88,9 @@ public class FudController : MonoBehaviour
             FindObjectOfType<GameSessionController>().AteFood();
             if (gameObject.transform.localScale.x > 1)
             {
-                gameObject.transform.localScale -= new Vector3(0.1f, 0f, 0f);
+                gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0f);
             }
+            _animator.SetTrigger("ateGood");
         }
         else
         {
@@ -102,8 +106,9 @@ public class FudController : MonoBehaviour
 
             if (gameObject.transform.localScale.x < 2.5)
             {
-                gameObject.transform.localScale += new Vector3(0.1f, 0f, 0f);
+                gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0f);
             }
+            _animator.SetTrigger("ateBad");
         }
 
         // Outro

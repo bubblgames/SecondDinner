@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2613953057476747239}
   - component: {fileID: 2613953057476747238}
   - component: {fileID: 2613953057476747236}
+  - component: {fileID: 8152764581849445513}
   m_Layer: 0
   m_Name: Fud
   m_TagString: Untagged
@@ -169,4 +170,24 @@ MonoBehaviour:
   _speedIncrement: 2
   yumClip: {fileID: 8300000, guid: c8098197bb7954fff9f3b1c7845cfd7d, type: 3}
   yuckClip: {fileID: 8300000, guid: 26dc82340c03c4d9193eda3cdc32d05d, type: 3}
+  effectsPlayer: {fileID: 0}
   canMove: 1
+--- !u!95 &8152764581849445513
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2613953057476747234}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 663ff96806a244080baacbfe57029934, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
