@@ -9,13 +9,16 @@ public class FudController : MonoBehaviour
     [SerializeField] private float _speedIncrement;
     [SerializeField] private AudioClip yumClip;
     [SerializeField] private AudioClip yuckClip;
-    [SerializeField] private AudioSource effectsPlayer;
+    [SerializeField] private AudioClip doorOpen;
+    [SerializeField] private Animator doorAnimator;
     private Vector2 _moveInput;
     private Rigidbody2D _rigidbody2D;
     private string currentMeal = "Any";
     private float _originalMoveSpeed;
     public bool canMove = true;
     private Animator _animator;
+    private bool isLeaving = false;
+    private float leaveTime = 2f;
 
     void Start()
     {
@@ -25,7 +28,20 @@ public class FudController : MonoBehaviour
     }
     void Update()
     {
-        Run();
+        if (isLeaving)
+        {
+            leaveTime -= Time.deltaTime;
+            if (leaveTime < 0)
+            {
+                SceneManager.LoadScene(4);
+            }
+
+            gameObject.transform.localScale -= new Vector3(0.004f, 0.004f, 0.004f);
+        }
+        else
+        {
+            Run();
+        }
     }
 
     void Run()
@@ -53,6 +69,11 @@ public class FudController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isLeaving)
+        {
+            return;
+        }
+        
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Food")))
         {
             ConsumeFood(other);
@@ -61,7 +82,11 @@ public class FudController : MonoBehaviour
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Door")))
         {
             FindObjectOfType<GameSessionController>().SaveTotalScore();
-            SceneManager.LoadScene(4);
+            _animator.SetTrigger("isLeaving");
+            doorAnimator.SetTrigger("open");
+            AudioSource.PlayClipAtPoint(doorOpen, gameObject.transform.position);
+            isLeaving = true;
+            _rigidbody2D.velocity = new Vector2(0f, 0f);
         }
 
         if (other.tag.Equals("KitchenTrigger"))

@@ -1065,10 +1065,10 @@ MonoBehaviour:
   favoriteFood: {fileID: 3560909415216753038, guid: 58aef63db25e945b4b22a00a986ad24d, type: 3}
   badFoodOne: {fileID: 7131751689975481390, guid: 4db26bd09b84142e9b9d9628859c670f, type: 3}
   badFoodTwo: {fileID: 3523740036354967974, guid: 6c1fda45e008243639e46bcc84fc9337, type: 3}
-  minXVelocity: -2
-  maxXVelocity: 2
+  minXVelocity: -2.5
+  maxXVelocity: 2.5
   minYVelocity: 0
-  maxYVelocity: 3
+  maxYVelocity: 2
 --- !u!4 &750372403
 Transform:
   m_ObjectHideFlags: 0
@@ -1077,7 +1077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750372401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0.08, y: 6.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1855,7 +1855,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ebca1ad6694104bb090e1f96cd7a257b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.45
+  m_Volume: 0.67
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2287,7 +2287,7 @@ PrefabInstance:
       objectReference: {fileID: 1922734232}
     - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
       propertyPath: mealDuration
-      value: 8
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 3061554211746430579, guid: be0e059b8becb439cb1a624e5e2d94e7, type: 3}
       propertyPath: foodIndicator
